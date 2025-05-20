@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "./components/header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,61 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+
+        <Header />
+
         {children}
+
+        {/* Footer */}
+        <footer className="bg-black text-gray-300 px-6 py-12">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h4 className="text-xl font-bold text-white mb-4">XBTP</h4>
+              <p className="text-sm">
+                Designing kitchens that match your lifestyle. Visit our showroom or book a virtual consultation today.
+              </p>
+            </div>
+            <div>
+              <h5 className="text-lg font-semibold text-white mb-4">Quick Links</h5>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-yellow-500">Home</a></li>
+                <li><a href="#" className="hover:text-yellow-500">Virtual Tours</a></li>
+                <li><a href="#" className="hover:text-yellow-500">Project</a></li>
+                <li><a href="#" className="hover:text-yellow-500">Shop</a></li>
+                <li><a href="#" className="hover:text-yellow-500">Blog</a></li>
+                <li><a href="#" className="hover:text-yellow-500">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-lg font-semibold text-white mb-4">Contact</h5>
+              <ul className="space-y-2 text-sm">
+                <li>123 Kitchen Lane</li>
+                <li>New York, NY 10001</li>
+                <li>Email: info@kitchor.com</li>
+                <li>Phone: (123) 456-7890</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-lg font-semibold text-white mb-4">Newsletter</h5>
+              <p className="text-sm mb-4">Stay updated with our latest designs and offers.</p>
+              <form className="flex flex-col sm:flex-row gap-2">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="px-4 py-2 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none w-full"
+                />
+                <button className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition">
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 mt-12 pt-6 text-center text-sm text-gray-500">
+            &copy; {new Date().getFullYear()} XBTP. All rights reserved. <br />
+            Site créé par <a href="https://lena.colisson.me/" className="text-yellow-500 hover:underline">Léna Colisson</a>
+          </div>
+        </footer>
+
       </body>
     </html>
   );
