@@ -16,87 +16,161 @@ const slideRight = {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
-  }
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
 };
 
 export default function AboutPage() {
   return (
     <div className="font-sans text-gray-800 bg-white">
-      {/* Section Héro */}
-      <section className="relative bg-cover bg-center h-90 flex items-center justify-center" style={{ backgroundImage: "url('img/pexels-quang-nguyen-vinh-222549-14021062.webp')" }}>
+
+      {/* Hero Section */}
+      <section
+        className="relative bg-cover bg-center h-90 flex items-center justify-center"
+        style={{ backgroundImage: "url('img/aext6.png')" }}
+      >
         <div className="absolute inset-0 bg-black/50" />
-        <h2 className="text-center text-white text-4xl font-bold z-10">Aménagement <br />extérieur</h2>
+        <motion.h1
+          className="text-center text-white text-4xl font-bold z-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          Aménagement
+
+ <br /> Extérieur
+        </motion.h1>
       </section>
 
-      {/* Bloc Intro + Image */}
+      {/* Terrassement Section */}
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col lg:flex-row gap-12 items-center">
-          <div className="relative w-full lg:w-1/2">
-            <img src="img/pexels-quang-nguyen-vinh-222549-14021062.webp" alt="Interior" className="shadow-lg" />
-          </div>
-          <div className="w-full lg:w-1/2">
-            <p className="uppercase text-sm text-gray-500 mb-2">Transformez votre jardin</p>
-            <h3 className="text-3xl font-bold mb-4"> Aménagement Extérieur : valorisez vos extérieurs</h3>
-            <p className="text-gray-600 mb-6">
-              XBTP aménage vos espaces extérieurs : clôtures, portails, allées, bordures, terrasses, abris de jardin, carports, haies, arrosage…
-Offrez à votre maison un cadre agréable, fonctionnel et esthétique.
+          <motion.div
+            className="relative w-full lg:w-1/2"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideLeft}
+          >
+            <img
+              src="img/aext3.jpg"
+              alt="Terrassement chantier"
+              className="shadow-lg max-w-[700px] w-full h-auto mx-auto"
+            />
+          </motion.div>
+
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
+            <p className="uppercase text-sm text-gray-500 mb-2">
+              Transformez votre jardin
             </p>
+            <h2 className="text-3xl font-bold mb-4">
+  Aménagement Extérieur : valorisez vos extérieurs
+
+            </h2>
+            <p className="text-gray-600 mb-6">
+             XBTP aménage tous vos espaces extérieurs pour les rendre pratiques, esthétiques et durables : 
+            </p>
+            {/* Liste */}
+                  <motion.div
+                    className="grid grid-cols-1 text-gray-900 sm:grid-cols-2 gap-3 mb-6"
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={fadeUp}
+                    custom={4}
+                  >
+                    {[
+                      "Piscines, Carports",
+                      "Clôtures, Portails",
+                      "Terrases, Parkings",
+                      "Abris de jardin, Allées",
+                      "Bordures, Murêts",
+                      "Plantations de haies",
+
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <span className="text-yellow-500">✔</span>
+                        <p>{item}</p>
+                      </div>
+                    ))}
+                  </motion.div>
+
+                  <p className="text-gray-600 mb-6">  Offrez à votre maison un cadre de vie extérieur agréable et personnalisé, conçu pour durer.
+</p>
+            
             <button className="bg-black text-white px-6 py-3 rounded shadow hover:bg-gray-800">
-              Read More
+              Parlons-en ensemble !
             </button>
-            <div className="flex gap-8 mt-8 text-center">
-              <div>
-                <p className="text-2xl font-bold">25+</p>
-                <p className="text-sm text-gray-500">Years of Experience</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold">1,250+</p>
-                <p className="text-sm text-gray-500">Projects Completed</p>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
+      {/* Services Section */}
       <section className="bg-gray-100 py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-8 grid md:grid-cols-2 gap-10 items-center">
-          {/* Colonne de gauche : texte */}
-          <div>
-            <h4 className="text-2xl font-bold mb-4">WHY CHOOSE US</h4>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Nos services en Aménagements extérieurs</h2>
             <p className="text-gray-600 mb-6">
-              Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+             Notre savoir-faire repose sur une expertise complète en aménagements extérieurs, pour des constructions solides et conformes aux normes actuelles.
+              <br />
+              Faites confiance à notre expertise pour des travaux fiables et durables.
             </p>
-            <button className="px-6 py-2 bg-black text-white rounded hover:bg-gray-800">View All</button>
-          </div>
+            <a
+              href="/contact"
+              className="px-6 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
+            >
+              Demander un devis
+            </a>
+          </motion.div>
 
-          {/* Colonne de droite : les 4 blocs en grille 2x2 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
             {[
-              { title: "Fast Building" },
-              { title: "Smartly Execute" },
-              { title: "Carefully Planned" },
-              { title: "Perfect Design" },
+              {
+                title: "Construction de piscines",
+                text: "Création de piscines sur mesure adaptées à votre terrain et vos envies, avec margelles, plages, et systèmes de filtration."
+              },
+              {
+                title: "Création de bordures et délimitations",
+                text: "Pose de bordures esthétiques pour structurer votre jardin, délimiter vos espaces verts ou sécuriser vos massifs."
+              },
+              {
+                title: "Réalisation d’allées",
+                text: "Conception d’allées carrossables ou piétonnes, avec des matériaux durables : pavés, gravier stabilisé, béton désactivé…"
+              },
+              {
+                title: "Aménagement de parkings",
+                text: "Création de parkings extérieurs intégrés à votre jardin ou à votre cour : fondations, revêtement, drainage…"
+              }
             ].map((item, index) => (
-              <div key={index} className="bg-white p-6 rounded shadow text-center">
-                <h5 className="font-semibold mb-2">{item.title}</h5>
-                <p className="text-sm text-gray-500">
-                  Far far away, behind the word mountains...
-                </p>
+              <div key={index} className="bg-white p-6 shadow text-left">
+                <h5 className="font-semibold text-lg mb-2">{item.title}</h5>
+                <p className="text-sm text-gray-600">{item.text}</p>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-
-      {/* Section Contact en fond */}
+      {/* Contact Section */}
       <section
         className="relative text-center text-white bg-fixed bg-cover bg-center bg-no-repeat py-16"
-        style={{ backgroundImage: "url('img/contact.webp')" }}
+        style={{ backgroundImage: "url('img/aext1.png')" }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="relative max-w-3xl mx-auto px-6 z-10">
@@ -107,7 +181,7 @@ Offrez à votre maison un cadre agréable, fonctionnel et esthétique.
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            Vous avez un projet en tête ?
+            Besoin d’un aménagement extérieurs ?
           </motion.h2>
 
           <motion.p
@@ -117,8 +191,8 @@ Offrez à votre maison un cadre agréable, fonctionnel et esthétique.
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            N'hésitez pas à nous contacter !!
-          </motion.p>
+On s’occupe de tout, de la piscine à la cloture <br />
+  </motion.p>
 
           <motion.div
             className="mt-6"
@@ -137,9 +211,9 @@ Offrez à votre maison un cadre agréable, fonctionnel et esthétique.
         </div>
       </section>
 
-      {/* Localisation */}
+      {/* Map Section */}
       <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 grid md:grid-cols-2 gap-10 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
           <motion.div
             className="space-y-4"
             initial="hidden"
@@ -147,12 +221,12 @@ Offrez à votre maison un cadre agréable, fonctionnel et esthétique.
             viewport={{ once: true, amount: 0.3 }}
             variants={slideLeft}
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Location & Maps</h2>
-            <p className="text-gray-600">
-              📍 2308 Rue des Petits Écoliers, 75010 Paris City, France
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Zone d’intervention</h2>
+            <p className="text-gray-500">
+              Chez <strong>XBTP</strong>, chaque chantier est unique. Nous mettons notre savoir-faire au service de vos idées pour transformer vos espaces de vie avec des solutions esthétiques, robustes et durables.
             </p>
             <p className="text-gray-500 text-sm">
-              Nous sommes situés au cœur de Paris...
+              Basée à <strong>Versailles</strong>, notre équipe intervient dans toute la région ouest de Paris : de <strong>Boulogne-Billancourt</strong> à <strong>Saint-Germain-en-Laye</strong>, en passant par <strong>La Celle-Saint-Cloud</strong>, <strong>Rueil-Malmaison</strong>, <strong>Suresnes</strong>, <strong>Vaucresson</strong>, <strong>Le Vésinet</strong>, <strong>Marly-le-Roi</strong> et bien d’autres communes des <strong>Yvelines (78)</strong> et des <strong>Hauts-de-Seine (92)</strong>.
             </p>
             <Link
               href="/contact"
@@ -170,10 +244,7 @@ Offrez à votre maison un cadre agréable, fonctionnel et esthétique.
           >
             <iframe
               className="w-full h-64 md:h-80 rounded shadow"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9999788333936!2d2.292292615674053!3d48.858844079287886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdf6b7e7bb7%3A0xe16fe9dfeef5df8f!2sEiffel%20Tower!5e0!3m2!1sen!2sfr!4v1615979563636!5m2!1sen!2sfr"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d39577.52956162962!2d2.167325474937911!3d48.83854718471091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1747989242619!5m2!1sfr!2sfr"
             />
           </motion.div>
         </div>

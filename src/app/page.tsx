@@ -21,29 +21,29 @@ export default function HomePage() {
       titleLine1: "Terrassement",
       titleLine2: "& VRD",
       keywords: "Mini pelle, tranchée, évacuation terre, fondations, viabilisation, voirie, réseaux",
-      link: "/services/terrassement-vrd",
-      img: "/img/contact.webp"
+      link: "/terrassement",
+      img: "/img/IMG_3663.webp"
     },
     {
       titleLine1: "Maçonnerie",
       titleLine2: "& Constructions ",
       keywords: "Béton armé, mur, parpaing, fondations, radier, piscine, sous-œuvre, brique",
-      link: "/services/maconnerie",
-      img: "/img/contact.webp"
+      link: "/maconnerie",
+      img: "/img/maconnerie1.png"
     },
     {
       titleLine1: "Charpente",
       titleLine2: "& Couverture",
       keywords: "Charpentier, tuiles, zinc, velux, isolation, étanchéité, toiture, bardage",
-      link: "/services/charpente-couverture",
+      link: "/charpente",
       img: "/img/charpente.jpg"
     },
     {
       titleLine1: "Aménagement",
       titleLine2: "Extérieur",
       keywords: "Terrasse, clôture, portail, abri jardin, carport, arbres, arrosage, haie",
-      link: "/services/amenagement-exterieur",
-      img: "/img/contact.webp"
+      link: "/amenagementext",
+      img: "/img/aext2.jpeg"
     },
   ]
 
@@ -89,7 +89,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section
         className="relative h-screen bg-cover bg-center"
-        style={{ backgroundImage: "url('img/pexels-quang-nguyen-vinh-222549-14021062.webp')" }}
+        style={{ backgroundImage: "url('img/accueil.png')" }}
       >
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <motion.div
@@ -131,112 +131,156 @@ export default function HomePage() {
 
 
       <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-10">
+  <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-10">
 
-          {/* Image avec bouton lecture */}
-          <div className="relative w-full lg:w-1/2">
-            <div className="relative z-10">
-              <img
-                src="img/contact.webp"
-                alt="Construction site"
-                className="shadow-lg"
-              />
-            </div>
+    {/* Image avec bouton lecture */}
+    <motion.div
+      className="relative w-full lg:w-1/2"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      variants={fadeUp}
+      custom={0}
+    >
+      <div className="relative z-10">
+        <img
+          src="img/charpente4.jpg"
+          alt="Construction site"
+          className="shadow-lg"
+        />
+      </div>
+    </motion.div>
+
+    {/* Texte */}
+    <div className="w-full lg:w-1/2">
+      <motion.p
+        className="text-sm text-yellow-500 uppercase font-semibold mb-2"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        custom={1}
+      >
+        Votre expert en aménagement extérieur à Versailles et alentours
+      </motion.p>
+
+      <motion.h2
+        className="text-2xl md:text-3xl font-bold text-gray-900 mb-4"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        custom={2}
+      >
+        <strong>XBTP</strong> est une entreprise spécialisée dans les travaux de construction et d’aménagement extérieur en Île-de-France.
+      </motion.h2>
+
+      <motion.p
+        className="text-gray-700 mb-6"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        custom={3}
+      >
+        Forts de plus de 10 ans d’expérience, nous accompagnons nos clients – particuliers comme professionnels – dans la réalisation de leurs projets sur mesure, avec un souci constant de qualité, de sécurité et de durabilité.
+      </motion.p>
+
+      {/* Liste */}
+      <motion.div
+        className="grid grid-cols-1 text-gray-900 sm:grid-cols-2 gap-3 mb-6"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        custom={4}
+      >
+        {[
+          "Préparation de terrain & tranchées (Terrassement & VRD)",
+          "Ossature bois, zinguerie, toitures (Charpente & Couverture)",
+          "Murs, fondations, petits bâtiments (Maçonnerie & Constructions)",
+          "Terrasses, allées, portails (Aménagement extérieur)",
+        ].map((item, index) => (
+          <div key={index} className="flex items-center gap-2">
+            <span className="text-yellow-500">✔</span>
+            <p>{item}</p>
           </div>
+        ))}
+      </motion.div>
 
-          {/* Texte */}
-          <div className="w-full lg:w-1/2">
-            <p className="text-sm text-yellow-500 uppercase font-semibold mb-2">
-              Votre expert en aménagement extérieur à Versailles et alentours
-            </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              <strong>XBTP</strong> est une entreprise spécialisée dans les travaux de construction et d’aménagement extérieur en Île-de-France. 
+      {/* Bouton */}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        custom={5}
+      >
+        <Link
+          href="/contact"
+          className="bg-yellow-500 text-white px-6 py-3 hover:bg-yellow-600 transition font-semibold"
+        >
+          Contactez-moi
+        </Link>
+      </motion.div>
+    </div>
 
-            </h2>
-            <p className="text-gray-700 mb-6">
-Forts de plus de 10 ans d’expérience, nous accompagnons nos clients – particuliers comme professionnels – dans la réalisation de leurs projets sur mesure, avec un souci constant de qualité, de sécurité et de durabilité.            </p>
+  </div>
+</section>
 
-            {/* Liste */}
-            <div className="grid grid-cols-1 text-gray-900 sm:grid-cols-2 gap-3 mb-6">
-              {[
-                "Préparation de terrain & tranchées (Terrassement & VRD)",
-                "Ossature bois, zinguerie, toitures (Charpente & Couverture)",
-                "Murs, fondations, petits bâtiments (Maçonnerie & Constructions)",
-                "Terrasses, allées, portails (Aménagement extérieur)",
-              ].map((item, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <span className="text-yellow-500">✔</span>
-                  <p>{item}</p>
-                </div>
-              ))}
-            </div>
 
-            {/* Bouton */}
-            <Link
-              href="/contact"
-              className="bg-yellow-500 text-white px-6 py-3 hover:bg-yellow-600 transition font-semibold">
-              Contactez-moi
-            </Link>
-          </div>
+<section className="bg-black py-12">
+  <div className="max-w-7xl mx-auto px-6 text-center mb-12">
+  <motion.h2
+    className="text-3xl md:text-4xl font-bold text-white mb-4"
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true }}
+    variants={fadeUp}
+    custom={0}
+  >
+    Nos 4 pôles d’expertise
+  </motion.h2>
+</div>
 
-        </div>
-      </section>
-
-      <section className="bg-black py-12">
-        <div className="max-w-7xl mx-auto px-6 text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Nos 4 pôles d’expertise</h2>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map(({ titleLine1, titleLine2, keywords, link, img }, idx) => {
-            const isFlipped = flippedIndex === idx
-            return (
-              <div
-                key={idx}
-                className="relative perspective h-100 w-full"
-              >
-                <div className={`w-full h-full transition-transform duration-700 ${isFlipped ? 'rotate-y-180' : ''} transform-style-preserve-3d`}>
-                  {/* FRONT */}
-                  <div className="absolute w-full h-full backface-hidden">
-                    <Image src={img} alt={`${titleLine1} ${titleLine2}`} fill className="object-cover" />
-                    <div className="absolute inset-0 bg-black/50 p-4 flex flex-col justify-between text-white">
-                      <div>
-                        <h3 className="text-xl font-bold leading-tight">
-                          {titleLine1}<br />{titleLine2}
-                        </h3>
-                        <p className="text-sm mt-4">{keywords}</p>
-                      </div>
-
-                      <button
-                        onClick={() => toggleFlip(idx)}
-                        className="mt-4 inline-block bg-yellow-500 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-600 transition-all duration-300 text-center"
-                      >
-                        Pour en savoir plus
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* BACK */}
-                  <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-white text-black p-4 flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-xl font-bold leading-tight">
-                        {titleLine1}<br />{titleLine2}
-                      </h3>
-                      <p className="text-sm mt-4">{keywords}</p>
-                    </div>
-                    <Link
-                      href={link}
-                      className="mt-4 inline-block bg-yellow-500 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-600 transition-all duration-300 text-center"
-                    >
-                      Accéder au service
-                    </Link>
-                  </div>
-                </div>
+  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {services.map(({ titleLine1, titleLine2, keywords, link, img }, idx) => (
+      <motion.div
+        key={idx}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        custom={idx}
+      >
+        <Link
+          href={link}
+          className="group block relative w-full h-90 overflow-hidden transform transition-transform duration-300 hover:scale-[1.02]"
+        >
+          <div className="absolute w-full h-full">
+            <Image
+              src={img}
+              alt={`Illustration du service ${titleLine1} ${titleLine2}`}
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/30 p-4 flex flex-col justify-between text-white">
+              <div>
+                <h3 className="text-xl font-bold leading-tight">
+                  {titleLine1}<br />{titleLine2}
+                </h3>
+                <p className="text-sm mt-4">{keywords}</p>
               </div>
-            )
-          })}
-        </div>
-      </section>
+            </div>
+          </div>
+        </Link>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
+
+
 
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
