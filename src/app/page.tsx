@@ -4,9 +4,85 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import './components/flip.css'
 
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
+
+  const toggleFlip = (index: number) => {
+    setFlippedIndex(flippedIndex === index ? null : index);
+  };
+
+
+  const services = [
+    {
+      titleLine1: "Terrassement",
+      titleLine2: "& VRD",
+      keywords: "Mini pelle, tranchée, évacuation terre, fondations, viabilisation, voirie, réseaux",
+      link: "/services/terrassement-vrd",
+      img: "/img/contact.webp"
+    },
+    {
+      titleLine1: "Maçonnerie",
+      titleLine2: "& Constructions ",
+      keywords: "Béton armé, mur, parpaing, fondations, radier, piscine, sous-œuvre, brique",
+      link: "/services/maconnerie",
+      img: "/img/contact.webp"
+    },
+    {
+      titleLine1: "Charpente",
+      titleLine2: "& Couverture",
+      keywords: "Charpentier, tuiles, zinc, velux, isolation, étanchéité, toiture, bardage",
+      link: "/services/charpente-couverture",
+      img: "/img/charpente.jpg"
+    },
+    {
+      titleLine1: "Aménagement",
+      titleLine2: "Extérieur",
+      keywords: "Terrasse, clôture, portail, abri jardin, carport, arbres, arrosage, haie",
+      link: "/services/amenagement-exterieur",
+      img: "/img/contact.webp"
+    },
+  ]
+
+  // Animation variant
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' }
+    }
+  };
+
+
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  };
+
+  const slideLeft = {
+    hidden: { opacity: 0, x: -50 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+  };
+
+
+
+  const slideRight = {
+    hidden: { opacity: 0, x: 50 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+  };
 
   return (
     <main className="bg-gray-900 text-white font-sans">
@@ -26,9 +102,9 @@ export default function HomePage() {
               className="text-4xl md:text-5xl font-bold mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
             >
-              Concevez votre extérieur <br /> avec des experts
+              Construisons vos projets <br /> avec des experts
             </motion.h1>
             <motion.p
               className="text-lg mb-6"
@@ -45,7 +121,7 @@ export default function HomePage() {
             >
               <Link
                 href="/contact"
-                className="bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition font-semibold">
+                className="bg-yellow-500 text-white px-6 py-3  hover:bg-yellow-600 transition font-semibold">
                 Contactez-moi
               </Link>
             </motion.div>
@@ -63,7 +139,7 @@ export default function HomePage() {
               <img
                 src="img/contact.webp"
                 alt="Construction site"
-                className="rounded-lg shadow-lg"
+                className="shadow-lg"
               />
             </div>
           </div>
@@ -71,24 +147,22 @@ export default function HomePage() {
           {/* Texte */}
           <div className="w-full lg:w-1/2">
             <p className="text-sm text-yellow-500 uppercase font-semibold mb-2">
-              We represent the future of the construction
+              Votre expert en aménagement extérieur à Versailles et alentours
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Safety, quality and sustainability
+              <strong>XBTP</strong> est une entreprise spécialisée dans les travaux de construction et d’aménagement extérieur en Île-de-France. 
+
             </h2>
             <p className="text-gray-700 mb-6">
-              At Byren, we have helped customers complete more than 5,000 projects in 160 countries on all continents that have created jobs, grown economies, improved the resiliency of the world’s infrastructure, increased access to resources and vital services and made the world a safer place.
-            </p>
+Forts de plus de 10 ans d’expérience, nous accompagnons nos clients – particuliers comme professionnels – dans la réalisation de leurs projets sur mesure, avec un souci constant de qualité, de sécurité et de durabilité.            </p>
 
             {/* Liste */}
             <div className="grid grid-cols-1 text-gray-900 sm:grid-cols-2 gap-3 mb-6">
               {[
-                "Construction Technology",
-                "Metallurgical & Material",
-                "Heavy Engineering",
-                "Electrical & Automation",
-                "Hydrocarbon Engineering",
-                "Mining Machinery"
+                "Préparation de terrain & tranchées (Terrassement & VRD)",
+                "Ossature bois, zinguerie, toitures (Charpente & Couverture)",
+                "Murs, fondations, petits bâtiments (Maçonnerie & Constructions)",
+                "Terrasses, allées, portails (Aménagement extérieur)",
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <span className="text-yellow-500">✔</span>
@@ -98,9 +172,11 @@ export default function HomePage() {
             </div>
 
             {/* Bouton */}
-            <button className="bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition font-semibold">
-              Our Services
-            </button>
+            <Link
+              href="/contact"
+              className="bg-yellow-500 text-white px-6 py-3 hover:bg-yellow-600 transition font-semibold">
+              Contactez-moi
+            </Link>
           </div>
 
         </div>
@@ -108,138 +184,158 @@ export default function HomePage() {
 
       <section className="bg-black py-12">
         <div className="max-w-7xl mx-auto px-6 text-center mb-12">
-          <h2 className="text-3xl font-bold text-white">Nos services</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Nos 4 pôles d’expertise</h2>
         </div>
+
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map(({ titleLine1, titleLine2, keywords, link, img }, idx) => {
+            const isFlipped = flippedIndex === idx
+            return (
+              <div
+                key={idx}
+                className="relative perspective h-100 w-full"
+              >
+                <div className={`w-full h-full transition-transform duration-700 ${isFlipped ? 'rotate-y-180' : ''} transform-style-preserve-3d`}>
+                  {/* FRONT */}
+                  <div className="absolute w-full h-full backface-hidden">
+                    <Image src={img} alt={`${titleLine1} ${titleLine2}`} fill className="object-cover" />
+                    <div className="absolute inset-0 bg-black/50 p-4 flex flex-col justify-between text-white">
+                      <div>
+                        <h3 className="text-xl font-bold leading-tight">
+                          {titleLine1}<br />{titleLine2}
+                        </h3>
+                        <p className="text-sm mt-4">{keywords}</p>
+                      </div>
 
-          {/* Country Collection */}
-          <div className="relative h-90 group overflow-hidden ">
-            <img
-              src="img/contact.webp"
-              alt="Country Collection"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
-            <div className="absolute top-4 left-4 text-white">
-              <h3 className="text-lg font-semibold">Terrassement<br /> Réseau</h3>
-            </div>
-            <div className="absolute bottom-4 left-4">
-              <button className="text-white text-sm hover:text-gray-300 transition">
-                READ MORE
-              </button>
-            </div>
-          </div>
+                      <button
+                        onClick={() => toggleFlip(idx)}
+                        className="mt-4 inline-block bg-yellow-500 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-600 transition-all duration-300 text-center"
+                      >
+                        Pour en savoir plus
+                      </button>
+                    </div>
+                  </div>
 
-          {/* Concord Collection */}
-          <div className="relative group overflow-hidden ">
-            <img
-              src="img/contact.webp"
-              alt="Concord Collection"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
-            <div className="absolute top-4 left-4 text-white">
-              <h3 className="text-lg font-semibold">Construction<br />Maçonnerie</h3>
-            </div>
-            <div className="absolute bottom-4 left-4">
-              <button className="text-white text-sm hover:text-gray-300 transition">
-                READ MORE
-              </button>
-            </div>
-          </div>
-
-          {/* Classic Collection */}
-          <div className="relative group overflow-hidden">
-            <img
-              src="img/contact.webp"
-              alt="Classic Collection"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
-            <div className="absolute top-4 left-4 text-white">
-              <h3 className="text-lg font-semibold">Charpente<br />Couverture</h3>
-            </div>
-            <div className="absolute bottom-4 left-4">
-              <button className="text-white text-sm hover:text-gray-300 transition">
-                READ MORE
-              </button>
-            </div>
-          </div>
-
-          {/* Luxor Collection */}
-          <div className="relative group overflow-hidden">
-            <img
-              src="img/contact.webp"
-              alt="Luxor Collection"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
-            <div className="absolute top-4 left-4 text-white">
-              <h3 className="text-lg font-semibold">Aménagement<br />Extérieur</h3>
-            </div>
-            <div className="absolute bottom-4 left-4">
-              <button className="text-white text-sm hover:text-gray-300 transition">
-                READ MORE
-              </button>
-            </div>
-          </div>
-
+                  {/* BACK */}
+                  <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-white text-black p-4 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold leading-tight">
+                        {titleLine1}<br />{titleLine2}
+                      </h3>
+                      <p className="text-sm mt-4">{keywords}</p>
+                    </div>
+                    <Link
+                      href={link}
+                      className="mt-4 inline-block bg-yellow-500 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-600 transition-all duration-300 text-center"
+                    >
+                      Accéder au service
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </section>
 
-      {/* Location & Maps */}
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-gray-800">Location & Maps</h3>
-            <p className="text-gray-600">
-              📍 2308 Rue des Petits Écoliers, 75010 Paris City, France
-            </p>
+
+          <motion.div
+            className="space-y-4"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideLeft}
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Zone d’intervention</h2>
+            <p className="text-gray-500 ">
+              Chez <strong>XBTP</strong>, chaque chantier est unique. Nous mettons notre savoir-faire au service de vos idées pour transformer vos espaces de vie avec des solutions esthétiques, robustes et durables.</p>
             <p className="text-gray-500 text-sm">
-              Nous sommes situés au cœur de Paris. Retrouvez-nous facilement grâce à la carte ci-contre ou cliquez sur le bouton pour ouvrir notre emplacement sur Google Maps.
+              Basée à <strong>Versailles</strong>, notre équipe intervient dans toute la région ouest de Paris : de <strong>Boulogne-Billancourt</strong> à <strong>Saint-Germain-en-Laye</strong>, en passant par <strong>La Celle-Saint-Cloud</strong>, <strong>Rueil-Malmaison</strong>, <strong>Suresnes</strong>, <strong>Vaucresson</strong>, <strong>Le Vésinet</strong>, <strong>Marly-le-Roi</strong> et bien d’autres communes des <strong>Yvelines (78)</strong> et des <strong>Hauts-de-Seine (92)</strong>.
             </p>
-            <a
-              href="https://www.google.com/maps/place/Eiffel+Tower/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-yellow-700 text-white px-5 py-2 rounded hover:bg-yellow-800 transition"
+            
+            <Link
+              href="/contact"
+              className="bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition font-semibold inline-block"
             >
-              Voir l’emplacement →
-            </a>
-          </div>
-          <div>
-            <iframe
-              className="w-full h-64 md:h-80 rounded shadow"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9999788333936!2d2.292292615674053!3d48.858844079287886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdf6b7e7bb7%3A0xe16fe9dfeef5df8f!2sEiffel%20Tower!5e0!3m2!1sen!2sfr!4v1615979563636!5m2!1sen!2sfr"
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+              Contactez-moi
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideRight}
+          >
+          
+             <iframe className="w-full h-64 md:h-80 rounded shadow" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d39577.52956162962!2d2.167325474937911!3d48.83854718471091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1747989242619!5m2!1sfr!2sfr" 
+            />
+          </motion.div>
+
         </div>
       </section>
-
-      <section className="relative text-center text-white bg-fixed bg-cover bg-center bg-no-repeat py-16" style={{ backgroundImage: "url('img/contact.webp')" }}>
+      <section
+        className="relative text-center text-white bg-fixed bg-cover bg-center bg-no-repeat py-16"
+        style={{ backgroundImage: "url('img/contact.webp')" }}
+      >
         <div className="absolute inset-0 bg-black/60"></div>
-        <div className="relative max-w-3xl mx-auto px-6 z-10">
-          <h2 className="text-2xl font-semibold mt-2">Years experience working</h2>
-          <p className="mt-6">
-            Creative solutions by professional designers. Your kitchen is an expression of who you are,
-            and its design should match your lifestyle. Whether you need a traditional touch or desire
-            a modern feel, we can design your dream kitchen to suit any purpose.
-          </p>
-          <a
-            href="/experience"
-            className="inline-block mt-6 border px-6 py-2 rounded hover:bg-black hover:text-white"
+        <div className="relative max-w-4xl mx-auto px-6 z-10">
+
+          <motion.h2
+            className="text-2xl md:text-3xl font-bold text-white mb-4"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={0}
           >
-            Continue Reading
-          </a>
+            Vous recherchez une entreprise d’aménagement extérieur à Versailles, Boulogne, Saint-Germain-en-Laye, ou La Celle-Saint-Cloud ?
+          </motion.h2>
+
+          <motion.p
+            className="mt-6"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={1}
+          >
+            XBTP intervient également à Rueil-Malmaison, Suresnes, Garches, Vaucresson, Le Vésinet, et dans de nombreuses autres communes des Yvelines et des Hauts-de-Seine.
+          </motion.p>
+
+          <motion.div
+            className="mt-6"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={2}
+          >
+            <Link
+              href="/contact"
+              className="bg-yellow-500 inline-block text-white px-6 py-3 hover:bg-yellow-600 transition font-semibold rounded"
+            >
+              Contactez-moi
+            </Link>
+          </motion.div>
+
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="bg-gray-100 text-black px-6 py-16 text-center">
-        <h3 className="text-2xl font-bold mb-8">Avis de nos clients</h3>
+      <section className="bg-white text-black px-6 py-16 text-center">
+        <motion.h2
+          className="text-2xl md:text-3xl font-bold text-gray-900 mb-4"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          Avis de nos clients
+        </motion.h2>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {[
             {
@@ -251,11 +347,25 @@ export default function HomePage() {
               feedback: "L'équipe de Xbtp a réalisé un travail exceptionnel sur notre projet de maçonnerie.",
             }
           ].map((review, idx) => (
-            <div key={idx} className="bg-white p-6 rounded shadow text-left">
+            <motion.div
+              key={idx}
+              className="bg-white p-6 rounded shadow text-left"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5, delay: idx * 0.2 }
+                }
+              }}
+            >
               <p className="text-yellow-500 text-xl mb-2">★★★★★</p>
               <p className="mb-4 italic">"{review.feedback}"</p>
-              <p className="font-semibold">{review.name}</p>
-            </div>
+              <h3 className="font-semibold">{review.name}</h3>
+            </motion.div>
           ))}
         </div>
       </section>

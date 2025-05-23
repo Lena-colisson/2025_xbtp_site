@@ -29,22 +29,29 @@ export default function Navbar() {
           <Link href="/" className="text-black hover:text-yellow-500">Accueil</Link>
 
           <div className="relative group">
-                        <button className="text-black hover:text-yellow-500">Mes Services</button>
-                        <div className="absolute hidden group-hover:block bg-black text-white p-2 space-y-2 z-10">
-                            <a href="/terrassement" className="block hover:text-yellow-500">Terrassement</a>
-                            <a href="/construction" className="block hover:text-yellow-500">Construction</a>
-                            <a href="/charpente" className="block hover:text-yellow-500">Charpentes</a>
-                            <a href="/amenagementext" className="block hover:text-yellow-500">Aménagement Extérieur</a>
-                        </div>
-                    </div>
-                    
+            <button className="text-black hover:text-yellow-500">Mes Services</button>
+            <div className="absolute hidden group-hover:block bg-black text-white p-2 space-y-2 z-10">
+              <a href="/terrassement" className="block hover:text-yellow-500">Terrassement</a>
+              <a href="/construction" className="block hover:text-yellow-500">Construction</a>
+              <a href="/charpente" className="block hover:text-yellow-500">Charpentes</a>
+              <a href="/amenagementext" className="block hover:text-yellow-500">Aménagement Extérieur</a>
+            </div>
+          </div>
+
           <Link href="/realisation" className="text-black hover:text-yellow-500">Mes Réalisations</Link>
           <Link href="/contact" className="text-black hover:text-yellow-500">Contact</Link>
         </nav>
 
         {/* Menu Burger Mobile */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-3xl">&#9776;</button>
+          {/* Bouton Burger toujours visible sur mobile */}
+<button
+  onClick={toggleMenu}
+  className="md:hidden fixed top-4 right-4 z-50 text-3xl text-black"
+>
+  {menuOpen ? '✕' : '☰'}
+</button>
+
         </div>
       </div>
 
@@ -59,15 +66,18 @@ export default function Navbar() {
           >
             {[
               { href: "/", label: "Accueil" },
-              { href: "/services", label: "Mes Services" },
-              { href: "/portfolio", label: "Portfolio" },
-              { href: "/aproposde", label: "À propos de" },
+              { href: "/terrassement", label: "Terrassement VRD" },
+              { href: "/maconnerie", label: "Maçonnerie" },
+              { href: "/charpente", label: "Charpente" },
+              { href: "/amenagementext", label: "Aménagement Extérieur" },
+              { href: "/realisation", label: "Réalisations" },
               { href: "/contact", label: "Contact" }
             ].map(({ href, label }) => (
+            
               <Link
                 key={href}
                 href={href}
-                className={`${isActive(href) ? "underline" : ""} hover:text-gray-500 text-3xl ${href === "/contact" ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 px-6 rounded-full hover:from-blue-600 hover:to-cyan-600" : ""}`}
+                className={`${isActive(href) ? "underline" : ""} text-black hover:text-gray text-3xl ${href === "/contact" ? "bg-yellow-500 text-white px-6 py-3  hover:bg-yellow-600 text-white transition font-semibold" : ""}`}
                 onClick={handleMenuClose}
               >
                 {label}
