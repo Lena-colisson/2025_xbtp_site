@@ -66,7 +66,7 @@ export default function AboutPage() {
             variants={fadeUp}
           >
             <p className="uppercase text-sm text-gray-500 mb-2">
-              La solidité d’une maison commence par une structure fiable et <br />une toiture bien posée.
+              Une maison saine c'est avant tout un toit bien couvert
             </p>
             <h2 className="text-3xl font-bold mb-4">
 Charpente & Couverture : protégez durablement votre maison
@@ -88,21 +88,21 @@ Nos services incluent :
                   >
                     {[
                       "Pose de charpente traditionnelle",
-                      "Installation de tuiles, ardoises, zinc",
-                      "Réalisation complète de la carcasse bois",
+                      "Pose de tuiles, ardoises, zinc",
+                      "Velux et Verrières",
                       "Pose de chevrons, liteaux et écran sous-toiture",
-                      "Étanchéité, isolation et finition de toiture",
+                      "Étanchéité, isolation, finition de toiture et gouttières",
                       "Pose de charpente industrielle",
 
                     ].map((item, index) => (
                       <div key={index} className="flex items-center gap-2">
-                        <span className="text-yellow-500">✔</span>
+                        <span className="text-yellow-300">✔</span>
                         <p>{item}</p>
                       </div>
                     ))}
                   </motion.div>
             
-            <button className="bg-black text-white px-6 py-3 rounded shadow hover:bg-gray-800">
+            <button className="bg-yellow-300 inline-block text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold">
               Parlons-en ensemble !
             </button>
           </motion.div>
@@ -110,61 +110,80 @@ Nos services incluent :
       </section>
 
       {/* Services Section */}
-      <section className="bg-gray-100 py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 grid md:grid-cols-2 gap-10 items-center">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fadeUp}
-          >
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Nos services en Charpentes & Couvertures</h2>
-            <p className="text-gray-600 mb-6">
-             Notre savoir-faire repose sur une expertise complète en charpentes, pour des constructions solides et conformes aux normes actuelles.
+<section className="bg-black py-20">
+  <div className="max-w-7xl mx-auto px-6 md:px-8">
+    {/* Titre et description */}
+    <div className=" mb-16 mx-auto">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
+        <h2 className="text-3xl text-white md:text-4xl font-bold mb-4">
+          Nos services en Charpentes & Couvertures
+        </h2>
+        <p className="text-white mb-6 text-lg">
+         Notre savoir-faire repose sur une expertise complète en charpentes, pour des constructions solides et conformes aux normes actuelles.
               <br />
-              Faites confiance à notre expertise pour des travaux fiables et durables.
-            </p>
-            <a
-              href="/contact"
-              className="px-6 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
-            >
-              Demander un devis
-            </a>
-          </motion.div>
+          Faites confiance à notre expertise pour des travaux fiables et durables.
+        </p>
+        <Link
+          href="/contact"
+          className="bg-yellow-300 inline-block text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold"
+        >
+          Demander un devis gratuit
+        </Link>
+      </motion.div>
+    </div>
 
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fadeUp}
-          >
-            {[
-              {
-                title: "Charpente solide & sur-mesure",
-                text: "Conception et pose de charpentes bois, adaptées à chaque type de bâtiment."
-              },
-              {
-                title: "Toiture complète & performante",
-                text: "Couverture en tuiles, ardoises ou zinc, posées dans les règles de l’art."
-              },
-              {
-                title: "Chevrons & carcasse bois",
-                text: "Assemblage de la structure porteuse pour une stabilité optimale."
-              },
-              {
-                title: "Étanchéité & isolation",
-                text: "Protection contre les infiltrations et amélioration du confort thermique."
-              }
-            ].map((item, index) => (
-              <div key={index} className="bg-white p-6 shadow text-left">
-                <h5 className="font-semibold text-lg mb-2">{item.title}</h5>
-                <p className="text-sm text-gray-600">{item.text}</p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+    {/* Grille des services */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {[
+        {
+          title: "Charpente solide & sur-mesure",
+          text: "Conception et pose de charpentes bois, adaptées à chaque type de bâtiment en bois massif ou en lamellé collé.",
+          img: "img/realisation_xbtp/IMG_1397.jpeg"
+        },
+        {
+          title: "Toiture complète & performante",
+          text: "Couverture en tuiles, ardoises ou zinc, posées dans les règles de l’art.",
+          img: "img/realisation_xbtp/IMG_0613.jpeg"
+        },
+        {
+          title: "Maison ossature bois",
+          text: "Assemblage de la structure porteuse pour une stabilité optimale.",
+          img: "img/realisation_xbtp/IMG_1398.jpeg"
+        },
+        {
+          title: "Étanchéité & isolation",
+          text: "Protection contre les infiltrations et amélioration du confort thermique.",
+          img: "img/realisation_xbtp/IMG_1399.jpeg"
+        }
+      ].map((item, index) => (
+        <motion.div
+          key={index}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          className="bg-white shadow-lg shadow-white/60 overflow-hidden"
+        >
+          <img
+            src={item.img}
+            alt={item.title}
+            className="w-full h-60 object-cover"
+          />
+          <div className="p-6">
+            <h5 className="font-semibold text-xl mb-2">{item.title}</h5>
+            <p className="text-gray-600 text-base">{item.text}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Contact Section */}
       <section
@@ -202,7 +221,7 @@ On s’occupe de tout, de la charpente à la dernière tuile.<br />
           >
             <Link
               href="/contact"
-              className="bg-yellow-500 inline-block text-white px-6 py-3 hover:bg-yellow-600 transition font-semibold rounded"
+              className="bg-yellow-300 inline-block text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold"
             >
               Contactez-moi
             </Link>
@@ -211,8 +230,10 @@ On s’occupe de tout, de la charpente à la dernière tuile.<br />
       </section>
 
       {/* Map Section */}
+      
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+
           <motion.div
             className="space-y-4"
             initial="hidden"
@@ -221,15 +242,15 @@ On s’occupe de tout, de la charpente à la dernière tuile.<br />
             variants={slideLeft}
           >
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Zone d’intervention</h2>
-            <p className="text-gray-500">
-              Chez <strong>XBTP</strong>, chaque chantier est unique. Nous mettons notre savoir-faire au service de vos idées pour transformer vos espaces de vie avec des solutions esthétiques, robustes et durables.
-            </p>
+            <p className="text-gray-500 ">
+              Chez <strong>XBTP</strong>, chaque chantier est unique. Nous mettons notre savoir-faire au service de vos idées pour transformer vos espaces de vie avec des solutions esthétiques, robustes et durables.</p>
             <p className="text-gray-500 text-sm">
-              Basée à <strong>Versailles</strong>, notre équipe intervient dans toute la région ouest de Paris : de <strong>Boulogne-Billancourt</strong> à <strong>Saint-Germain-en-Laye</strong>, en passant par <strong>La Celle-Saint-Cloud</strong>, <strong>Rueil-Malmaison</strong>, <strong>Suresnes</strong>, <strong>Vaucresson</strong>, <strong>Le Vésinet</strong>, <strong>Marly-le-Roi</strong> et bien d’autres communes des <strong>Yvelines (78)</strong> et des <strong>Hauts-de-Seine (92)</strong>.
+              Basée à <strong>Versailles</strong>, notre équipe intervient dans toute la région ouest de Paris : de <strong>Boulogne-Billancourt</strong> à <strong>Saint-Germain-en-Laye</strong>, en passant par <strong>La Celle-Saint-Cloud</strong>, <strong>Rueil-Malmaison</strong>, <strong>Suresnes</strong>, <strong>Vaucresson</strong>, <strong>Le Vésinet</strong>, <strong>Marly-le-Roi</strong>, <strong>Bougival</strong>, <strong>Louveciennes</strong>, <strong>Garches</strong>, <strong>Saint Cloud</strong>, <strong>Ville d'avray</strong>,  <strong>Le chesnay</strong>, <strong>Croissy sur seine</strong>, <strong>Le pecq</strong>, <strong>Chatou</strong> et bien d’autres communes des <strong>Yvelines (78)</strong> et des <strong>Hauts-de-Seine (92)</strong>.
             </p>
+            
             <Link
               href="/contact"
-              className="bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition font-semibold inline-block"
+              className="bg-yellow-300 text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold inline-block"
             >
               Contactez-moi
             </Link>
@@ -241,11 +262,10 @@ On s’occupe de tout, de la charpente à la dernière tuile.<br />
             viewport={{ once: true, amount: 0.3 }}
             variants={slideRight}
           >
-            <iframe
-              className="w-full h-64 md:h-80 rounded shadow"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d39577.52956162962!2d2.167325474937911!3d48.83854718471091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1747989242619!5m2!1sfr!2sfr"
+             <iframe className="w-full h-64 md:h-80 shadow" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d57797.98413104355!2d2.114868891153833!3d48.84805765392173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1748507271539!5m2!1sfr!2sfr" 
             />
           </motion.div>
+
         </div>
       </section>
     </div>

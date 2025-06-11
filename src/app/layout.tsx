@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "./components/header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
   title: "XBTP, Construisons vos projets",
-  description: "Terrassement - Aménagement Ectérieur - Charpente - Maçonnerie",
+  description: "Terrassement - Aménagement Ectérieur - Charpente -",
 };
 
 export default function RootLayout({
@@ -25,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${poppins.variable} antialiased`}>
 
         <Header />
 
@@ -47,13 +41,13 @@ export default function RootLayout({
     <div className="flex flex-col h-full items-center">
       <h5 className="text-lg font-semibold text-white mb-4">MENU</h5>
       <ul className="space-y-2 text-sm text-center">
-        <li><a href="#" className="hover:text-yellow-500">Accueil</a></li>
-        <li><a href="#" className="hover:text-yellow-500">Terrassements</a></li>
-        <li><a href="#" className="hover:text-yellow-500">Construction</a></li>
-        <li><a href="#" className="hover:text-yellow-500">Charpentes</a></li>
-        <li><a href="#" className="hover:text-yellow-500">Aménagements extérieur</a></li>
-        <li><a href="/realisation" className="hover:text-yellow-500">Réalisations</a></li>
-        <li><a href="#" className="hover:text-yellow-500">Contact</a></li>
+        <li><a href="#" className="hover:text-yellow-400">Accueil</a></li>
+        <li><a href="#" className="hover:text-yellow-400">Terrassements</a></li>
+        <li><a href="#" className="hover:text-yellow-400">Construction</a></li>
+        <li><a href="#" className="hover:text-yellow-400">Charpentes</a></li>
+        <li><a href="#" className="hover:text-yellow-400">Aménagements extérieur</a></li>
+        <li><a href="/realisation" className="hover:text-yellow-400">Réalisations</a></li>
+        <li><a href="#" className="hover:text-yellow-400">Contact</a></li>
       </ul>
     </div>
 

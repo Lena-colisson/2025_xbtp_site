@@ -46,7 +46,7 @@ export default function Contact() {
         >
           <Link
             href="/contact"
-            className="bg-yellow-500 inline-block text-white px-6 py-3 hover:bg-yellow-600 transition font-semibold rounded"
+            className="bg-yellow-300 inline-block text-white px-6 py-3 hover:bg-yellow-600 transition font-semibold rounded"
           >
             Contactez-moi
           </Link>

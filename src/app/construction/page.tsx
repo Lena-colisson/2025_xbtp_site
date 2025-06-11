@@ -71,9 +71,9 @@ export default function AboutPage() {
             </h2>
             <p className="text-gray-600 mb-6">
               Nous construisons vos murs, dalles, fondations, radier, sous-sols, piscines ou murs de soutènement avec des matériaux durables (parpaings, béton armé, briques...) <br />
-Nos artisans maçons sont formés aux techniques traditionnelles et modernes.
+              Nos artisans maçons sont formés aux techniques traditionnelles et modernes.
             </p>
-            <button className="bg-black text-white px-6 py-3 rounded shadow hover:bg-gray-800">
+            <button className="bg-yellow-300 inline-block text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold">
               Parlons-en ensemble !
             </button>
           </motion.div>
@@ -81,59 +81,76 @@ Nos artisans maçons sont formés aux techniques traditionnelles et modernes.
       </section>
 
       {/* Services Section */}
-      <section className="bg-gray-100 py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 grid md:grid-cols-2 gap-10 items-center">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fadeUp}
-          >
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Nos services en Maçonnerie & Constructions</h2>
-            <p className="text-gray-600 mb-6">
-             Notre savoir-faire repose sur une expertise complète en maçonnerie, pour des constructions solides et conformes aux normes actuelles.
-              <br />
-              Faites confiance à notre expertise pour des travaux fiables et durables.
-            </p>
-            <a
-              href="/contact"
-              className="px-6 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
+      <section className="bg-black py-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          {/* Titre et description */}
+          <div className=" mb-16 mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeUp}
             >
-              Demander un devis
-            </a>
-          </motion.div>
+              <h2 className="text-3xl text-white md:text-4xl font-bold mb-4">
+                Nos services en Maçonnerie & Constructions        </h2>
+              <p className="text-white mb-6 text-lg">
+                Notre savoir-faire repose sur une expertise complète en maçonnerie, pour des constructions solides et conformes aux normes actuelles.
+                <br />
+                Faites confiance à notre expertise pour des travaux fiables et durables.
+              </p>
+              <Link
+                href="/contact"
+                className="bg-yellow-300 inline-block text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold"
+              >
+                Demander un devis gratuit
+              </Link>
+            </motion.div>
+          </div>
 
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fadeUp}
-          >
+          {/* Grille des services */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                title: "Parpaings & Fondations",
-                text: "Construction de murs en parpaings, dalles et fondations solides pour garantir la stabilité de vos ouvrages."
+               title: "Murs & Fondations",
+                text: "Construction de murs en parpaings, dalles et fondations solides pour garantir la stabilité de vos ouvrages.",
+                img: "img/realisation_xbtp/IMG_1303.jpeg"
               },
               {
-                title: "Radier & Sous-sol",
-                text: "Réalisation de radiers techniques et de sous-sols étanches, parfaitement adaptés à votre terrain."
+                 title: "Radier & Sous-sol",
+                text: "Réalisation de radiers techniques et de sous-sols étanches, parfaitement adaptés à votre terrain.",
+                img: "img/realisation_xbtp/IMG_1391.jpeg"
               },
               {
-                title: "Murs de soutènement & Ravalement",
-                text: "Création de murs de soutènement durables et ravalement de façade pour protéger et embellir votre habitat."
+                  title: "Béton armé et murs de soutènement",
+                text: "Création de murs de soutènement durables et ravalement de façade pour protéger et embellir votre habitat.",
+                img: "img/realisation_xbtp/IMG_4595.jpeg"
               },
               {
-                title: "Enduits & Finitions",
-                text: "Application d’enduits traditionnels ou modernes et finitions soignées pour une qualité esthétique irréprochable."
+                 title: "Ravalement",
+                text: "Application d’enduits traditionnels ou modernes et finitions soignées pour une qualité esthétique irréprochable.",
+                img: "img/realisation_xbtp/IMG_9127.jpeg"
               }
             ].map((item, index) => (
-              <div key={index} className="bg-white p-6 shadow text-left">
-                <h5 className="font-semibold text-lg mb-2">{item.title}</h5>
-                <p className="text-sm text-gray-600">{item.text}</p>
-              </div>
+              <motion.div
+                key={index}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="bg-white shadow-lg shadow-white/60 overflow-hidden"
+              >
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-60 object-cover"
+                />
+                <div className="p-6">
+                  <h5 className="font-semibold text-xl mb-2">{item.title}</h5>
+                  <p className="text-gray-600 text-base">{item.text}</p>
+                </div>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -161,8 +178,8 @@ Nos artisans maçons sont formés aux techniques traditionnelles et modernes.
             viewport={{ once: true }}
             variants={fadeUp}
           >
-Vous avez une idée, un terrain, un chantier en tête ? <br />
-Confiez-le à des professionnels de confiance pour une réalisation solide, durable et sans surprise.          </motion.p>
+            Vous avez une idée, un terrain, un chantier en tête ? <br />
+            Confiez-le à des professionnels de confiance pour une réalisation solide, durable et sans surprise.          </motion.p>
 
           <motion.div
             className="mt-6"
@@ -173,7 +190,7 @@ Confiez-le à des professionnels de confiance pour une réalisation solide, dura
           >
             <Link
               href="/contact"
-              className="bg-yellow-500 inline-block text-white px-6 py-3 hover:bg-yellow-600 transition font-semibold rounded"
+              className="bg-yellow-300 inline-block text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold"
             >
               Contactez-moi
             </Link>
@@ -182,8 +199,10 @@ Confiez-le à des professionnels de confiance pour une réalisation solide, dura
       </section>
 
       {/* Map Section */}
+      
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+
           <motion.div
             className="space-y-4"
             initial="hidden"
@@ -192,15 +211,15 @@ Confiez-le à des professionnels de confiance pour une réalisation solide, dura
             variants={slideLeft}
           >
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Zone d’intervention</h2>
-            <p className="text-gray-500">
-              Chez <strong>XBTP</strong>, chaque chantier est unique. Nous mettons notre savoir-faire au service de vos idées pour transformer vos espaces de vie avec des solutions esthétiques, robustes et durables.
-            </p>
+            <p className="text-gray-500 ">
+              Chez <strong>XBTP</strong>, chaque chantier est unique. Nous mettons notre savoir-faire au service de vos idées pour transformer vos espaces de vie avec des solutions esthétiques, robustes et durables.</p>
             <p className="text-gray-500 text-sm">
-              Basée à <strong>Versailles</strong>, notre équipe intervient dans toute la région ouest de Paris : de <strong>Boulogne-Billancourt</strong> à <strong>Saint-Germain-en-Laye</strong>, en passant par <strong>La Celle-Saint-Cloud</strong>, <strong>Rueil-Malmaison</strong>, <strong>Suresnes</strong>, <strong>Vaucresson</strong>, <strong>Le Vésinet</strong>, <strong>Marly-le-Roi</strong> et bien d’autres communes des <strong>Yvelines (78)</strong> et des <strong>Hauts-de-Seine (92)</strong>.
+              Basée à <strong>Versailles</strong>, notre équipe intervient dans toute la région ouest de Paris : de <strong>Boulogne-Billancourt</strong> à <strong>Saint-Germain-en-Laye</strong>, en passant par <strong>La Celle-Saint-Cloud</strong>, <strong>Rueil-Malmaison</strong>, <strong>Suresnes</strong>, <strong>Vaucresson</strong>, <strong>Le Vésinet</strong>, <strong>Marly-le-Roi</strong>, <strong>Bougival</strong>, <strong>Louveciennes</strong>, <strong>Garches</strong>, <strong>Saint Cloud</strong>, <strong>Ville d'avray</strong>,  <strong>Le chesnay</strong>, <strong>Croissy sur seine</strong>, <strong>Le pecq</strong>, <strong>Chatou</strong> et bien d’autres communes des <strong>Yvelines (78)</strong> et des <strong>Hauts-de-Seine (92)</strong>.
             </p>
+            
             <Link
               href="/contact"
-              className="bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition font-semibold inline-block"
+              className="bg-yellow-300 text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold inline-block"
             >
               Contactez-moi
             </Link>
@@ -212,11 +231,10 @@ Confiez-le à des professionnels de confiance pour une réalisation solide, dura
             viewport={{ once: true, amount: 0.3 }}
             variants={slideRight}
           >
-            <iframe
-              className="w-full h-64 md:h-80 rounded shadow"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d39577.52956162962!2d2.167325474937911!3d48.83854718471091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1747989242619!5m2!1sfr!2sfr"
+             <iframe className="w-full h-64 md:h-80 shadow" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d57797.98413104355!2d2.114868891153833!3d48.84805765392173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1748507271539!5m2!1sfr!2sfr" 
             />
           </motion.div>
+
         </div>
       </section>
     </div>

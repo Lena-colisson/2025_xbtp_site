@@ -20,28 +20,28 @@ export default function HomePage() {
     {
       titleLine1: "Terrassement",
       titleLine2: "& VRD",
-      keywords: "Mini pelle, tranchée, évacuation terre, fondations, viabilisation, voirie, réseaux",
+      keywords: "Mini pelle, tranchée, évacuation terre, fondations, viabilisation, voirie, réseaux, démolition, assainissement et raccordement",
       link: "/terrassement",
       img: "/img/IMG_3663.webp"
     },
     {
       titleLine1: "Maçonnerie",
       titleLine2: "& Constructions ",
-      keywords: "Béton armé, mur, parpaing, fondations, radier, piscine, sous-œuvre, brique",
+      keywords: "Béton armé, mur, parpaing, fondations, radier, piscine, sous-œuvre, brique, soutènement, dalle et plancher",
       link: "/maconnerie",
       img: "/img/maconnerie1.png"
     },
     {
       titleLine1: "Charpente",
       titleLine2: "& Couverture",
-      keywords: "Charpentier, tuiles, zinc, velux, isolation, étanchéité, toiture, bardage",
+      keywords: "Charpentier, tuiles, zinc, velux, isolation, étanchéité, toiture, bardage et maison ossature bois ardoise",
       link: "/charpente",
       img: "/img/charpente.jpg"
     },
     {
       titleLine1: "Aménagement",
       titleLine2: "Extérieur",
-      keywords: "Terrasse, clôture, portail, abri jardin, carport, arbres, arrosage, haie",
+      keywords: "Terrasse, clôture, portail, abri jardin, carport, arbres, arrosage, haie, aménagement paysager, allée, parking et gazon",
       link: "/amenagementext",
       img: "/img/aext2.jpeg"
     },
@@ -104,7 +104,7 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              Construisons vos projets <br /> avec des experts
+              Construisons vos avenir
             </motion.h1>
             <motion.p
               className="text-lg mb-6"
@@ -112,7 +112,7 @@ export default function HomePage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-              Projet sur mesure – devis rapide & gratuit
+              Projet et devis sur mesure
             </motion.p>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -121,7 +121,7 @@ export default function HomePage() {
             >
               <Link
                 href="/contact"
-                className="bg-yellow-500 text-white px-6 py-3  hover:bg-yellow-600 transition font-semibold">
+                className="bg-yellow-300 text-white px-6 py-3  hover:bg-yellow-500 transition font-semibold">
                 Contactez-moi
               </Link>
             </motion.div>
@@ -154,7 +154,7 @@ export default function HomePage() {
     {/* Texte */}
     <div className="w-full lg:w-1/2">
       <motion.p
-        className="text-sm text-yellow-500 uppercase font-semibold mb-2"
+        className="text-sm text-yellow-300 uppercase font-semibold mb-2"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
@@ -183,7 +183,7 @@ export default function HomePage() {
         variants={fadeUp}
         custom={3}
       >
-        Forts de plus de 10 ans d’expérience, nous accompagnons nos clients – particuliers comme professionnels – dans la réalisation de leurs projets sur mesure, avec un souci constant de qualité, de sécurité et de durabilité.
+        Forts de notre expertise, nous accompagnons nos clients : particuliers comme professionnels, dans la réalisation de leurs projets sur mesure, avec un souci constant de qualité, de sécurité et de durabilité.
       </motion.p>
 
       {/* Liste */}
@@ -196,13 +196,13 @@ export default function HomePage() {
         custom={4}
       >
         {[
-          "Préparation de terrain & tranchées (Terrassement & VRD)",
-          "Ossature bois, zinguerie, toitures (Charpente & Couverture)",
-          "Murs, fondations, petits bâtiments (Maçonnerie & Constructions)",
-          "Terrasses, allées, portails (Aménagement extérieur)",
+          "Terrassement & Réseaux démolition",
+          "Maçonnerie et construction béton armé",
+          "Charpente, couverture, ossature bois",
+          "Aménagement extérieur terrasses clôtures piscines",
         ].map((item, index) => (
           <div key={index} className="flex items-center gap-2">
-            <span className="text-yellow-500">✔</span>
+            <span className="text-yellow-300">✔</span>
             <p>{item}</p>
           </div>
         ))}
@@ -218,7 +218,7 @@ export default function HomePage() {
       >
         <Link
           href="/contact"
-          className="bg-yellow-500 text-white px-6 py-3 hover:bg-yellow-600 transition font-semibold"
+          className="bg-yellow-300 text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold"
         >
           Contactez-moi
         </Link>
@@ -296,12 +296,12 @@ export default function HomePage() {
             <p className="text-gray-500 ">
               Chez <strong>XBTP</strong>, chaque chantier est unique. Nous mettons notre savoir-faire au service de vos idées pour transformer vos espaces de vie avec des solutions esthétiques, robustes et durables.</p>
             <p className="text-gray-500 text-sm">
-              Basée à <strong>Versailles</strong>, notre équipe intervient dans toute la région ouest de Paris : de <strong>Boulogne-Billancourt</strong> à <strong>Saint-Germain-en-Laye</strong>, en passant par <strong>La Celle-Saint-Cloud</strong>, <strong>Rueil-Malmaison</strong>, <strong>Suresnes</strong>, <strong>Vaucresson</strong>, <strong>Le Vésinet</strong>, <strong>Marly-le-Roi</strong> et bien d’autres communes des <strong>Yvelines (78)</strong> et des <strong>Hauts-de-Seine (92)</strong>.
+              Basée à <strong>Versailles</strong>, notre équipe intervient dans toute la région ouest de Paris : de <strong>Boulogne-Billancourt</strong> à <strong>Saint-Germain-en-Laye</strong>, en passant par <strong>La Celle-Saint-Cloud</strong>, <strong>Rueil-Malmaison</strong>, <strong>Suresnes</strong>, <strong>Vaucresson</strong>, <strong>Le Vésinet</strong>, <strong>Marly-le-Roi</strong>, <strong>Bougival</strong>, <strong>Louveciennes</strong>, <strong>Garches</strong>, <strong>Saint Cloud</strong>, <strong>Ville d'avray</strong>,  <strong>Le chesnay</strong>, <strong>Croissy sur seine</strong>, <strong>Le pecq</strong>, <strong>Chatou</strong> et bien d’autres communes des <strong>Yvelines (78)</strong> et des <strong>Hauts-de-Seine (92)</strong>.
             </p>
             
             <Link
               href="/contact"
-              className="bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition font-semibold inline-block"
+              className="bg-yellow-300 text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold inline-block"
             >
               Contactez-moi
             </Link>
@@ -313,13 +313,13 @@ export default function HomePage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={slideRight}
           >
-          
-             <iframe className="w-full h-64 md:h-80 rounded shadow" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d39577.52956162962!2d2.167325474937911!3d48.83854718471091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1747989242619!5m2!1sfr!2sfr" 
+             <iframe className="w-full h-64 md:h-80 shadow" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d57797.98413104355!2d2.114868891153833!3d48.84805765392173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1748507271539!5m2!1sfr!2sfr" 
             />
           </motion.div>
 
         </div>
       </section>
+      
       <section
         className="relative text-center text-white bg-fixed bg-cover bg-center bg-no-repeat py-16"
         style={{ backgroundImage: "url('img/contact.webp')" }}
@@ -359,7 +359,7 @@ export default function HomePage() {
           >
             <Link
               href="/contact"
-              className="bg-yellow-500 inline-block text-white px-6 py-3 hover:bg-yellow-600 transition font-semibold rounded"
+              className="bg-yellow-300 inline-block text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold"
             >
               Contactez-moi
             </Link>
@@ -393,7 +393,7 @@ export default function HomePage() {
           ].map((review, idx) => (
             <motion.div
               key={idx}
-              className="bg-white p-6 rounded shadow text-left"
+              className="bg-white p-6 shadow text-left"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
@@ -406,7 +406,7 @@ export default function HomePage() {
                 }
               }}
             >
-              <p className="text-yellow-500 text-xl mb-2">★★★★★</p>
+              <p className="text-yellow-300 text-xl mb-2">★★★★★</p>
               <p className="mb-4 italic">"{review.feedback}"</p>
               <h3 className="font-semibold">{review.name}</h3>
             </motion.div>

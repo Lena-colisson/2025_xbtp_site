@@ -26,20 +26,41 @@ export default function Navbar() {
 
         {/* Menu Desktop centré */}
         <nav className="hidden md:flex space-x-8 items-center justify-center mx-auto">
-          <Link href="/" className="text-black hover:text-yellow-500">Accueil</Link>
+          <Link
+            href="/"
+            className={`hover:text-yellow-500 ${
+              isActive("/") ? "text-yellow-300" : "text-black"
+            }`}
+          >
+            Accueil
+          </Link>
 
           <div className="relative group">
             <button className="text-black hover:text-yellow-500">Mes Services</button>
-            <div className="absolute hidden group-hover:block bg-black text-white p-2 space-y-2 z-10">
-              <a href="/terrassement" className="block hover:text-yellow-500">Terrassement</a>
-              <a href="/construction" className="block hover:text-yellow-500">Construction</a>
-              <a href="/charpente" className="block hover:text-yellow-500">Charpentes</a>
+            <div className="absolute hidden group-hover:block bg-white shadow text-black p-2 min-w-[220px] space-y-2 z-10 ">
+              <a href="/terrassement" className="block hover:text-yellow-500">Terrassement & VRD</a>
+              <a href="/construction" className="block hover:text-yellow-500">Maçonnerie & Constructions</a>
+              <a href="/charpente" className="block hover:text-yellow-500">Charpente & Couverture</a>
               <a href="/amenagementext" className="block hover:text-yellow-500">Aménagement Extérieur</a>
             </div>
           </div>
 
-          <Link href="/realisation" className="text-black hover:text-yellow-500">Mes Réalisations</Link>
-          <Link href="/contact" className="text-black hover:text-yellow-500">Contact</Link>
+            <Link
+            href="/realisation"
+            className={`hover:text-yellow-500 ${
+              isActive("/realisation") ? "text-yellow-500" : "text-black"
+            }`}
+          >
+            Mes Réalisations
+          </Link>
+           <Link
+            href="/contact"
+            className={`hover:text-yellow-500 ${
+              isActive("/contact") ? "text-yellow-500" : "text-black"
+            }`}
+          >
+            Contact
+          </Link>
         </nav>
 
         {/* Menu Burger Mobile */}
@@ -67,7 +88,7 @@ export default function Navbar() {
             {[
               { href: "/", label: "Accueil" },
               { href: "/terrassement", label: "Terrassement VRD" },
-              { href: "/maconnerie", label: "Maçonnerie" },
+              { href: "/construction", label: "Maçonnerie" },
               { href: "/charpente", label: "Charpente" },
               { href: "/amenagementext", label: "Aménagement Extérieur" },
               { href: "/realisation", label: "Réalisations" },
