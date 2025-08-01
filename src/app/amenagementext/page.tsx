@@ -110,80 +110,105 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="bg-black py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          {/* Titre et description */}
-          <div className=" mb-16 mx-auto">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-            >
-              <h2 className="text-3xl text-white md:text-4xl font-bold mb-4">
-                Nos services en Aménagements extérieurs
-              </h2>
-              <p className="text-white mb-6 text-lg">
-                Notre savoir-faire repose sur une expertise complète en aménagements extérieurs, pour créer des extérieurs digne de votre maison.
-                <br />
-                Faites confiance à notre expertise pour des travaux fiables et durables.
-              </p>
-              <Link
-                href="/contact"
-                className="bg-yellow-300 inline-block text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold"
-              >
-                Demander un devis gratuit
-              </Link>
-            </motion.div>
-          </div>
+{/* Services Section */}
+<section className="bg-black py-20">
+  <div className="max-w-7xl mx-auto px-6 md:px-8">
+    {/* Titre et description */}
+    <div className="mb-16 mx-auto">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
+        <h2 className="text-3xl text-white md:text-4xl font-bold mb-4">
+          Nos services en Aménagements extérieurs
+        </h2>
+        <p className="text-white mb-6 text-lg">
+Notre savoir-faire repose sur une expertise complète en aménagements extérieurs, pour créer des extérieurs digne de votre maison.    <br />
+          Faites confiance à notre expertise pour des travaux fiables et durables.
+        </p>
+        <Link
+          href="/contact"
+          className="bg-yellow-300 inline-block text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold"
+        >
+          Demander un devis gratuit
+        </Link>
+      </motion.div>
+    </div>
 
-          {/* Grille des services */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Aménagement paysager",
-                text: "Création de piscines sur mesure adaptées à votre terrain et vos envies, avec margelles, plages, et systèmes de filtration.",
-                img: "img/realisation_xbtp/IMG_8154.jpeg"
-              },
-              {
-                title: "Terrasses et délimitations",
-                text: "Pose de bordures esthétiques pour structurer votre jardin, délimiter vos espaces verts ou sécuriser vos massifs.",
-                img: "img/realisation_xbtp/IMG_0334.jpeg"
-              },
-              {
-                title: "Allées et parkings",
-                text: "Conception d’allées carrossables ou piétonnes, avec des matériaux durables : pavés, gravier stabilisé, béton désactivé…",
-                img: "img/realisation_xbtp/IMG_0797.jpeg"
-              },
-              {
-                title: "Abri jardin, carport et pool house",
-                text: "Création de parkings extérieurs intégrés à votre jardin ou à votre cour : fondations, revêtement, drainage…",
-                img: "img/realisation_xbtp/13286773.png"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="bg-white shadow-lg shadow-white/60 overflow-hidden"
-              >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-full h-60 object-cover"
-                />
-                <div className="p-6">
-                  <h5 className="font-semibold text-xl mb-2">{item.title}</h5>
-                  <p className="text-gray-600 text-base">{item.text}</p>
-                </div>
-              </motion.div>
-            ))}
+    {/* Cartes de services */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {[
+        {
+          title: "Aménagement paysager",
+          text: "Création de piscines sur mesure adaptées à votre terrain et vos envies, avec margelles, plages, et systèmes de filtration.",
+          img: "img/realisation_xbtp/IMG_8154.jpeg",
+          keywords: ["Terrassement", "Terrasse", "Aménagement"]
+        },
+        {
+          title: "Terrasses et délimitations",
+          text: "Pose de bordures esthétiques pour structurer votre jardin, délimiter vos espaces verts ou sécuriser vos massifs.",
+          img: "img/realisation_xbtp/IMG_0334.jpeg",
+          keywords: ["Bordures", "Délimitation", "Structure"]
+        },
+        {
+          title: "Allées et parkings",
+          text: "Conception d’allées carrossables ou piétonnes, avec des matériaux durables : pavés, gravier stabilisé, béton désactivé…",
+          img: "img/realisation_xbtp/IMG_0797.jpeg",
+          keywords: ["Allées", "Parking", "Béton désactivé"]
+        },
+        {
+          title: "Abri jardin, carport et pool house",
+          text: "Création de parkings extérieurs intégrés à votre jardin ou à votre cour : fondations, revêtement, drainage…",
+          img: "img/realisation_xbtp/13286773.png",
+          keywords: ["Abri", "Carport", "Pool house"]
+        }
+      ].map((item, index) => (
+        <motion.div
+          key={index}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          className="bg-white shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-6 h-full"
+        >
+          <div className="w-full md:w-1/3 h-60 overflow-hidden flex-shrink-0">
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-full h-full object-cover"
+            />
           </div>
-        </div>
-      </section>
+          <div className="w-full md:w-2/3 flex flex-col justify-between h-full">
+            <div>
+              <h2 className="text-2xl font-semibold text-black">
+                {item.title}
+              </h2>
+              <p className="text-gray-700 mt-2">
+                {item.text}
+              </p>
+            </div>
+            <div className="mt-4">
+              <h3 className="font-semibold text-black">Mots clés</h3>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {item.keywords.map((keyword, i) => (
+                  <span
+                    key={i}
+                    className="bg-black text-white px-3 py-1 rounded-full text-sm"
+                  >
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Contact Section */}
       <section

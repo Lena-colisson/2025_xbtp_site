@@ -86,12 +86,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-  
 {/* Services Section */}
 <section className="bg-black py-20">
   <div className="max-w-7xl mx-auto px-6 md:px-8">
     {/* Titre et description */}
-    <div className=" mb-16 mx-auto">
+    <div className="mb-16 mx-auto">
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -102,9 +101,9 @@ export default function AboutPage() {
           Nos services en Terrassement & VRD
         </h2>
         <p className="text-white mb-6 text-lg">
-          Nous proposons un ensemble complet de services pour préparer vos chantiers :
-          terrassement, viabilisation, réseaux, location d’engins et livraison de matériaux.
-          Faites confiance à notre expertise pour des travaux solides, fiables et durables.
+Nous proposons un ensemble complet de services pour préparer vos chantiers : terrassement, viabilisation, réseaux, <br /> location d’engins et livraison de matériaux. 
+    <br />
+          Faites confiance à notre expertise pour des travaux fiables et durables.
         </p>
         <Link
           href="/contact"
@@ -115,28 +114,32 @@ export default function AboutPage() {
       </motion.div>
     </div>
 
-    {/* Grille des services */}
+    {/* Cartes de services */}
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {[
         {
-          title: "Terrassement",
-          text: "Tranchées, décaissement, fondations, nivellement, remblais…",
-          img: "img/realisation_xbtp/IMG_3623.jpeg"
+          title: "Térassement",
+          text: "Création de piscines sur mesure adaptées à votre terrain et vos envies, avec margelles, plages, et systèmes de filtration.",
+          img: "img/realisation_xbtp/IMG_8154.jpeg",
+          keywords: ["Terrassement", "Terrasse", "Aménagement"]
         },
         {
           title: "Réseaux VRD",
-          text: "Canalisations, eaux usées, pluviales, raccordements divers.",
-          img: "img/realisation_xbtp/IMG_1363.jpeg"
+          text: "Pose de bordures esthétiques pour structurer votre jardin, délimiter vos espaces verts ou sécuriser vos massifs.",
+          img: "img/realisation_xbtp/IMG_0334.jpeg",
+          keywords: ["Canalisations", "Pluviales", "Raccordements Divers"]
         },
         {
-          title: "Location d'engins",
-          text: "Mini-pelle avec chauffeur, bennes, camions à gravats, etc.",
-          img: "img/realisation_xbtp/IMG_3663.jpeg"
+          title: "Locations d'engins",
+          text: "Conception d’allées carrossables ou piétonnes, avec des matériaux durables : pavés, gravier stabilisé, béton désactivé…",
+          img: "img/realisation_xbtp/IMG_0797.jpeg",
+          keywords: ["Mini-pelle", "Bennes", "Camion à gravats"]
         },
         {
-          title: "Livraison de matériaux",
-          text: "Sable, gravier, terre végétale, tout-venant, concassé...",
-          img: "img/realisation_xbtp/IMG_5367.jpeg"
+          title: "Livraison des matériaux",
+          text: "Création de parkings extérieurs intégrés à votre jardin ou à votre cour : fondations, revêtement, drainage…",
+          img: "img/realisation_xbtp/13286773.png",
+          keywords: ["Sable", "Gravier", "Terre végétale"]
         }
       ].map((item, index) => (
         <motion.div
@@ -145,23 +148,43 @@ export default function AboutPage() {
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="bg-white shadow-lg shadow-white/60 overflow-hidden"
+          className="bg-white shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-6 h-full"
         >
-          <img
-            src={item.img}
-            alt={item.title}
-            className="w-full h-60 object-cover"
-          />
-          <div className="p-6">
-            <h5 className="font-semibold text-xl mb-2">{item.title}</h5>
-            <p className="text-gray-600 text-base">{item.text}</p>
+          <div className="w-full md:w-1/3 h-60 overflow-hidden flex-shrink-0">
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="w-full md:w-2/3 flex flex-col justify-between h-full">
+            <div>
+              <h2 className="text-2xl font-semibold text-black">
+                {item.title}
+              </h2>
+              <p className="text-gray-700 mt-2">
+                {item.text}
+              </p>
+            </div>
+            <div className="mt-4">
+              <h3 className="font-semibold text-black">Mots clés</h3>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {item.keywords.map((keyword, i) => (
+                  <span
+                    key={i}
+                    className="bg-black text-white px-3 py-1 rounded-full text-sm"
+                  >
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
       ))}
     </div>
   </div>
 </section>
-
 
 
       {/* Contact Section */}

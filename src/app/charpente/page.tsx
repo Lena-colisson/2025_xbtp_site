@@ -109,11 +109,11 @@ Nos services incluent :
         </div>
       </section>
 
-      {/* Services Section */}
+            {/* Services Section */}
 <section className="bg-black py-20">
   <div className="max-w-7xl mx-auto px-6 md:px-8">
     {/* Titre et description */}
-    <div className=" mb-16 mx-auto">
+    <div className="mb-16 mx-auto">
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -121,12 +121,11 @@ Nos services incluent :
         variants={fadeUp}
       >
         <h2 className="text-3xl text-white md:text-4xl font-bold mb-4">
-          Nos services en Charpentes & Couvertures
+          Nos services Charpentes & Couvertures
         </h2>
         <p className="text-white mb-6 text-lg">
-         Notre savoir-faire repose sur une expertise complète en charpentes, pour des constructions solides et conformes aux normes actuelles.
-              <br />
-          Faites confiance à notre expertise pour des travaux fiables et durables.
+Notre savoir-faire repose sur une expertise complète en charpentes, pour des constructions solides et conformes aux normes actuelles. <br />
+Faites confiance à notre expertise pour des travaux fiables et durables. 
         </p>
         <Link
           href="/contact"
@@ -137,28 +136,32 @@ Nos services incluent :
       </motion.div>
     </div>
 
-    {/* Grille des services */}
+    {/* Cartes de services */}
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {[
-        {
+         {
           title: "Charpente solide & sur-mesure",
           text: "Conception et pose de charpentes bois, adaptées à chaque type de bâtiment en bois massif ou en lamellé collé.",
-          img: "img/realisation_xbtp/IMG_1397.jpeg"
+          img: "img/realisation_xbtp/IMG_1397.jpeg",
+           keywords: ["Charpente bois", "Terrasse", "Aménagement"]
         },
         {
           title: "Toiture complète & performante",
           text: "Couverture en tuiles, ardoises ou zinc, posées dans les règles de l’art.",
-          img: "img/realisation_xbtp/IMG_0613.jpeg"
+          img: "img/realisation_xbtp/IMG_0613.jpeg",
+           keywords: ["Tuiles", "Ardoise", "Zinc"]
         },
         {
           title: "Maison ossature bois",
           text: "Assemblage de la structure porteuse pour une stabilité optimale.",
-          img: "img/realisation_xbtp/IMG_1398.jpeg"
+          img: "img/realisation_xbtp/IMG_1398.jpeg", 
+           keywords: ["Maison", "Bois", "Bardage"]
         },
         {
           title: "Étanchéité & isolation",
           text: "Protection contre les infiltrations et amélioration du confort thermique.",
-          img: "img/realisation_xbtp/IMG_1399.jpeg"
+          img: "img/realisation_xbtp/IMG_1399.jpeg",
+           keywords: ["Isolation", "Étanchéité", "Toiture"]
         }
       ].map((item, index) => (
         <motion.div
@@ -167,23 +170,43 @@ Nos services incluent :
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="bg-white shadow-lg shadow-white/60 overflow-hidden"
+          className="bg-white shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-6 h-full"
         >
-          <img
-            src={item.img}
-            alt={item.title}
-            className="w-full h-60 object-cover"
-          />
-          <div className="p-6">
-            <h5 className="font-semibold text-xl mb-2">{item.title}</h5>
-            <p className="text-gray-600 text-base">{item.text}</p>
+          <div className="w-full md:w-1/3 h-60 overflow-hidden flex-shrink-0">
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="w-full md:w-2/3 flex flex-col justify-between h-full">
+            <div>
+              <h2 className="text-2xl font-semibold text-black">
+                {item.title}
+              </h2>
+              <p className="text-gray-700 mt-2">
+                {item.text}
+              </p>
+            </div>
+            <div className="mt-4">
+              <h3 className="font-semibold text-black">Mots clés</h3>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {item.keywords.map((keyword, i) => (
+                  <span
+                    key={i}
+                    className="bg-black text-white px-3 py-1 rounded-full text-sm"
+                  >
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
       ))}
     </div>
   </div>
 </section>
-
 
       {/* Contact Section */}
       <section

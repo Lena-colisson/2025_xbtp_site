@@ -80,79 +80,116 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="bg-black py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          {/* Titre et description */}
-          <div className=" mb-16 mx-auto">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-            >
-              <h2 className="text-3xl text-white md:text-4xl font-bold mb-4">
-                Nos services en Maçonnerie & Constructions        </h2>
-              <p className="text-white mb-6 text-lg">
-                Notre savoir-faire repose sur une expertise complète en maçonnerie, pour des constructions solides et conformes aux normes actuelles.
-                <br />
-                Faites confiance à notre expertise pour des travaux fiables et durables.
-              </p>
-              <Link
-                href="/contact"
-                className="bg-yellow-300 inline-block text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold"
-              >
-                Demander un devis gratuit
-              </Link>
-            </motion.div>
-          </div>
+{/* Services Section */}
+<section className="bg-black py-20">
+  <div className="max-w-7xl mx-auto px-6 md:px-8">
+    {/* Titre et description */}
+    <div className="mb-16 mx-auto">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
+        <h2 className="text-3xl text-white md:text-4xl font-bold mb-4">
+          Nos services en Terrassement & VRD
+        </h2>
+        <p className="text-white mb-6 text-lg">
+Nous proposons un ensemble complet de services pour préparer vos chantiers : terrassement, viabilisation, réseaux, <br /> location d’engins et livraison de matériaux. 
+    <br />
+          Faites confiance à notre expertise pour des travaux fiables et durables.
+        </p>
+        <Link
+          href="/contact"
+          className="bg-yellow-300 inline-block text-white px-6 py-3 hover:bg-yellow-500 transition font-semibold"
+        >
+          Demander un devis gratuit
+        </Link>
+      </motion.div>
+    </div>
 
-          {/* Grille des services */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-               title: "Murs & Fondations",
-                text: "Construction de murs en parpaings, dalles et fondations solides pour garantir la stabilité de vos ouvrages.",
-                img: "img/realisation_xbtp/IMG_1303.jpeg"
-              },
-              {
-                 title: "Radier & Sous-sol",
-                text: "Réalisation de radiers techniques et de sous-sols étanches, parfaitement adaptés à votre terrain.",
-                img: "img/realisation_xbtp/IMG_1391.jpeg"
-              },
-              {
-                  title: "Béton armé et murs de soutènement",
-                text: "Création de murs de soutènement durables et ravalement de façade pour protéger et embellir votre habitat.",
-                img: "img/realisation_xbtp/IMG_4595.jpeg"
-              },
-              {
-                 title: "Ravalement",
-                text: "Application d’enduits traditionnels ou modernes et finitions soignées pour une qualité esthétique irréprochable.",
-                img: "img/realisation_xbtp/IMG_9127.jpeg"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="bg-white shadow-lg shadow-white/60 overflow-hidden"
-              >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-full h-60 object-cover"
-                />
-                <div className="p-6">
-                  <h5 className="font-semibold text-xl mb-2">{item.title}</h5>
-                  <p className="text-gray-600 text-base">{item.text}</p>
-                </div>
-              </motion.div>
-            ))}
+    {/* Cartes de services */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {[
+       {
+          title: "Murs & Fondations",
+          text: "Construction de murs en parpaings, dalles et fondations solides pour garantir la stabilité de vos ouvrages.",
+          img: "img/realisation_xbtp/IMG_1303.jpeg",
+          keywords: ["Murs en parpaings", "Fondations béton", "Stabilité de construction",
+          ]
+        },
+        {
+          title: "Radier & Sous-sol",
+          text: "Réalisation de radiers techniques et de sous-sols étanches, parfaitement adaptés à votre terrain.",
+          img: "img/realisation_xbtp/IMG_1391.jpeg",
+          keywords: [
+            "Radier béton",
+            "Sous-sol étanche",
+            "Fondations profondes",
+          ]
+        },
+        {
+          title: "Béton armé et murs de soutènement",
+          text: "Création de murs de soutènement durables et ravalement de façade pour protéger et embellir votre habitat.",
+          img: "img/realisation_xbtp/IMG_4595.jpeg",
+          keywords: ["Mur de soutènement", "Béton armé","Renforcement terrain"]
+        },
+        {
+          title: "Ravalement",
+          text: "Application d’enduits traditionnels ou modernes et finitions soignées pour une qualité esthétique irréprochable.",
+          img: "img/realisation_xbtp/IMG_9127.jpeg",
+          keywords: [
+            "Enduit de façade",
+            "Ravalement maison",
+            "Finitions extérieures",
+          ]
+        }
+      ].map((item, index) => (
+        <motion.div
+          key={index}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          className="bg-white shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-6 h-full"
+        >
+          <div className="w-full md:w-1/3 h-60 overflow-hidden flex-shrink-0">
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-full h-full object-cover"
+            />
           </div>
-        </div>
-      </section>
+          <div className="w-full md:w-2/3 flex flex-col justify-between h-full">
+            <div>
+              <h2 className="text-2xl font-semibold text-black">
+                {item.title}
+              </h2>
+              <p className="text-gray-700 mt-2">
+                {item.text}
+              </p>
+            </div>
+            <div className="mt-4">
+              <h3 className="font-semibold text-black">Mots clés</h3>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {item.keywords.map((keyword, i) => (
+                  <span
+                    key={i}
+                    className="bg-black text-white px-3 py-1 rounded-full text-sm"
+                  >
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* Contact Section */}
       <section
